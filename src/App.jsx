@@ -1,12 +1,15 @@
+import Header from './assets/Components/Header/Header'
+import BoxContent from './assets/Components/BoxContent/BoxContent'
 import './App.css'
+
 
 function App() {
 
 
   return (
     <div className="App">
-      <h1>Rick & Morty | Wiki</h1>
-      {/* Módulos */}
+      <Header/>
+      <BoxContent />
     </div>
   )
 }

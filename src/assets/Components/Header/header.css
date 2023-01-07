@@ -1,0 +1,69 @@
+.flex__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    color: #FFF;
+    align-items: center;
+    width: 100vw;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, .5);
+    background-image: url('../src/assets/Images/background_site.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.header{
+    grid-area: header;
+}
+
+.header__title{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    text-align: center;
+}
+
+.header__title > h1{
+    font-family: 'Get Schwifty';
+    font-weight: bold;
+    padding: .5em;
+    font-size: 3em;
+    color: aqua;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: yellow;
+    text-shadow: 12px 0 #000, -12px 0 #000, 0 12px #000, 0 -12px #000,
+            6px 6px #000, -6px -6px #000, 6px -6px #000, -6px 6px #000;
+}
+
+.mid-title{
+    font-size: .5em;
+}
+
+.input__search{
+    width: 400px;
+    height: 30px;
+    border-radius: .5em;
+    outline: none;
+    background-color: var(--bg_color);
+    color: var(--text_color);
+}
+
+::placeholder{
+    font-weight: bold;
+    padding: .5em;
+}
+.input__search:focus,
+.input__search:focus-visible{
+    outline: none;
+}
+
+.search__btn{
+    width: 100px;
+    height: 30px;
+    border-radius: .5em;
+    background-color: var(--bg_color);
+    color: var(--text_color);
+}

@@ -1,14 +1,12 @@
-#root {
-  margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: grid;
-    padding: 1em;
-    gap: .5em;
-    grid-auto-rows: 1fr;
-    grid-template-columns: repeat(12, 1fr);
-}
-*::before,
-*::after {
-  box-sizing: border-box;
+.App{
+  display: grid;
+  position: relative;
+  gap: .5em;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+  "header"
+  "content"
+  "foot";
+  width: 100vw;
 }
