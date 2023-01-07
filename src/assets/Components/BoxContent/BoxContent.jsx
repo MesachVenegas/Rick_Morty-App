@@ -10,13 +10,12 @@ const BoxContent = () => {
     const [randomLocation, setRandomLocation] = useState(undefined)
 
     const getLocation = async () => {
-        await rickApi.get(randomLocation ? `/location/${randomLocation}` : '/location')
+        await rickApi.get('/location')
         .then(res => setLocation(res.data.results))
     }
 
     useEffect( () =>{
         // Math.floor( Math.random() * location.length)
-        setRandomLocation(2)
         getLocation(`/location`)
     },[])
 
