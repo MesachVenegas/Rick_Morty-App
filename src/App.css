@@ -10,3 +10,15 @@
   "foot";
   width: 100vw;
 }
+
+.flex__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  color: #FFF;
+  align-items: center;
+  width: 100vw;
+  gap: 1em;
+  background-color: rgba(0, 0, 0, .5);
+}

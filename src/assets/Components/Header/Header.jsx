@@ -7,7 +7,7 @@ const Header = () => {
         <div className='flex__container header'>
             <div className="header__title">
                 <h1>Rick <span className='mid-title'> and</span> Morty</h1>
-                <h2>Wiki</h2>
+                {/* <h2>Wiki</h2> */}
             </div>
             <div className="header__search">
                 <input type="text" className='input__search' placeholder='Search'/>

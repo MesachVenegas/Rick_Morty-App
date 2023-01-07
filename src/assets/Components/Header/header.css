@@ -1,22 +1,9 @@
-.flex__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2em;
-    color: #FFF;
-    align-items: center;
-    width: 100vw;
-    gap: 1em;
-    background-color: rgba(0, 0, 0, .5);
+.header{
+    grid-area: header;
     background-image: url('../src/assets/Images/background_site.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    z-index: -1;
-}
-
-.header{
-    grid-area: header;
 }
 
 .header__title{

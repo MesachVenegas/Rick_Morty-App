@@ -1,4 +1,4 @@
 .content{
     grid-area: content;
-    background-color: var(--bg_color);
+    height: fit-content;
 }
