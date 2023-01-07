@@ -7,24 +7,29 @@ import './boxContenten.css'
 
 const BoxContent = () => {
     const [location, setLocation] = useState([]);
-    const [randomLocation, setRandomLocation] = useState(undefined)
+    const [randomLocation, setRandomLocation] = useState({});
 
     const getLocation = async () => {
         await rickApi.get('/location')
-        .then(res => setLocation(res.data.results))
-    }
+            .then(res => setLocation(res.data.results))
+        }
+
 
     useEffect( () =>{
-        // Math.floor( Math.random() * location.length)
-        getLocation(`/location`)
+        getLocation()
+        setRandomLocation( location?.[ Math.floor( Math.random() * location.length ) ])
     },[])
 
-    console.log(location);
+
+    // console.log(location);
+    console.log(randomLocation);
 
     return (
         <div className='flex__container content'>
-            <LocationInfo />
+            <LocationInfo key={randomLocation?.id} name={randomLocation?.name} type={randomLocation?.type} residents={randomLocation?.residents}/>
+            <hr />
             <h1>Caja de Contenido</h1>
+            <hr/>
             <div className="card__item">
                 <h3 className="name">Nombre: </h3>
             </div>

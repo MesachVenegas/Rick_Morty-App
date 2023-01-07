@@ -29,13 +29,18 @@
     font-size: .5em;
 }
 
+.header__search{
+    width: 85%;
+}
+
 .input__search{
-    width: 400px;
+    width: 60%;
     height: 30px;
     border-radius: .5em;
     outline: none;
     background-color: var(--bg_color);
     color: var(--text_color);
+    border: none;
 }
 
 ::placeholder{
@@ -48,9 +53,16 @@
 }
 
 .search__btn{
-    width: 100px;
+    width: 30%;
     height: 30px;
+    border: none;
+    font-weight: bold;
     border-radius: .5em;
     background-color: var(--bg_color);
     color: var(--text_color);
+}
+
+.search__btn:hover{
+    color: var(--bg_color);
+    background-color: aqua;
 }
