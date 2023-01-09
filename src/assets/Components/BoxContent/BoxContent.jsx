@@ -1,45 +1,46 @@
+import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { rickApi } from '../../API/Api';
-import LocationInfo from '../LocationInfo/Locationinfo'
+import CardItem from '../CardItem/CardItem';
+import LocationInfo from '../LocationInfo/LocationInfo';
 import './boxContenten.css'
 
 
 const BoxContent = () => {
     const [location, setLocation] = useState([]);
-    const [randomLocation, setRandomLocation] = useState(1);
+    const [characters, setCharacters] = useState([])
 
-    const getLocation = async () => {
-        await rickApi.get('/location')
-            .then(res => setLocation(res.data.results))
-            .then(
-                )
-    }
-
-    const genLocation = async () =>{
-        const locationRandom =  Math.floor(Math.random() * location.length)
-        setRandomLocation(locationRandom)
-    }
+    // Obtenemos la locaion aleatoriamente.
+    const getLocation = async () =>{
+        let loc = Math.floor(Math.random() * 125);
+        await axios.get(`https://rickandmortyapi.com/api/location/${loc}`)
+            .then(res =>{
+                setLocation(res.data)
+                setCharacters(res.data.residents)
+            })
+            .catch(err => console.log(err))
+        }
 
     useEffect( () =>{
         getLocation()
-        genLocation()
     },[])
 
-    console.log(location[randomLocation]);
-
+    const loadData = () =>{
+        return(
+            characters.map(char => (
+                <CardItem key={char?.id} character={char} />
+            ))
+        )
+    }
 
     return (
         <div className='flex__container content'>
-            <div className="locationInfo">
-                <LocationInfo loc={location[randomLocation]}/>
+            <div className='flex__container info__location'>
+                <LocationInfo loc={location}/>
             </div>
-            <div className="dataContaint">
-                <h1>Caja de Contenido</h1>
-                <div className="card__item">
-                    <h3 className="name">Nombre: </h3>
-                </div>
-            </div>
+            <ul className="data__containt">
+                {loadData()}
+            </ul>
         </div>
     );
 };

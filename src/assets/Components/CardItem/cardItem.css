@@ -1,0 +1,34 @@
+.character__card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    width: 450px;
+    padding: 1em;
+    border-radius: .5em;
+    background-color: #000;
+    box-shadow: -4px 8px 16px rgba(0, 0, 0, .9), 0 16px 32px rgb(0, 0, 0);
+}
+
+.avatar{
+    width: 150px;
+    height: 150px;
+    background-color: #F1F1F1;
+}
+
+.avatar > img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.character__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .5em;
+    gap: .5em;
+}
+.status__led{
+    border-radius: 50%;
+    border: 2 solid #FFF;
+}

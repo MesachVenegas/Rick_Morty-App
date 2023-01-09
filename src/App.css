@@ -1,7 +1,5 @@
 .App{
   display: grid;
-  position: relative;
-  gap: .5em;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
@@ -15,10 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2em;
-  color: #FFF;
   align-items: center;
+  color: #F1F1F1;
   width: 100vw;
-  gap: 1em;
-  background-color: rgba(0, 0, 0, .5);
+  gap: .5em;
 }
