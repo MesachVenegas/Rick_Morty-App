@@ -6,32 +6,31 @@ import LocationInfo from '../LocationInfo/LocationInfo';
 import './boxContenten.css'
 
 
-const BoxContent = () => {
+const BoxContent = ({loc}) => {
     const [location, setLocation] = useState([]);
-    const [characters, setCharacters] = useState([])
+    // const [residents, setResidents] = useState([])
 
     // Obtenemos la locaion aleatoriamente.
-    const getLocation = async () =>{
-        let loc = Math.floor(Math.random() * 125);
-        await axios.get(`https://rickandmortyapi.com/api/location/${loc}`)
-            .then(res =>{
-                setLocation(res.data)
-                setCharacters(res.data.residents)
-            })
-            .catch(err => console.log(err))
+    const getLocation = async (loc) =>{
+        let randomLoc = Math.floor(Math.random() * 125);
+
+        if(loc){
+            console.log("Buscando locación")
         }
+        else{
+            await axios.get(`https://rickandmortyapi.com/api/location/${randomLoc}`)
+                .then(res =>{
+                    setLocation(res.data)
+                })
+                .catch(err => console.log(err))
+        }
+    }
+
 
     useEffect( () =>{
         getLocation()
-    },[])
+    },[loc])
 
-    const loadData = () =>{
-        return(
-            characters.map(char => (
-                <CardItem key={char?.id} character={char} />
-            ))
-        )
-    }
 
     return (
         <div className='flex__container content'>
@@ -39,7 +38,11 @@ const BoxContent = () => {
                 <LocationInfo loc={location}/>
             </div>
             <ul className="data__containt">
-                {loadData()}
+                {
+                    location?.residents?.map(url => (
+                        <CardItem key={url} url={url}/>
+                    ))
+                }
             </ul>
         </div>
     );

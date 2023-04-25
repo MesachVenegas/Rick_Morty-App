@@ -6,12 +6,12 @@ import './App.css'
 function App() {
 
 
-  return (
-    <div className="App">
-      <Header />
-      <BoxContent />
-    </div>
-  )
+    return (
+        <div className="App">
+            <Header />
+            <BoxContent />
+        </div>
+    )
 }
 
 export default App

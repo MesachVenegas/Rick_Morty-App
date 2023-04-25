@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
 import './header.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 
 const Header = () => {
     const [search, setSearch] = useState('')
+    const [locations, setLocations] = useState({});
+
+    const getSuggestions = async () => {
+        await axios.get("https://rickandmortyapi.com/api/location/?page=2")
+            .then( res => {
+                console.log(res.data.results)
+            })
+            .catch( error => console.error(error))
+    }
+
+    useEffect( () => {
+        getSuggestions()
+    },[])
 
     return (
         <div className='flex__container header'>

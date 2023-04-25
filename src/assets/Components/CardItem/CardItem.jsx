@@ -2,30 +2,36 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './cardItem.css'
 
-const CardItem = ({character}) => {
-    const [char, setChar] = useState({})
-    const [status, setStatus]= useState('green')
+const CardItem = ({ url }) => {
+    const [character, setCharacter] = useState({})
+    const [isAlive, setIsAlive]= useState(null)
 
-    // https://rickandmortyapi.com/api/character/38
-    const getResident = async (character) => {
-        await axios.get('https://rickandmortyapi.com/api/character/38')
-            .then(res => setChar(res.data))
+    const getResident = async (url) => {
+        await axios.get(url)
+            .then(res => {
+                setCharacter(res.data)
+                setIsAlive(res.data.status)
+                // console.log(res.data.status)
+            })
+            .catch(err => console.error(err))
     }
     useEffect( () =>{
-        getResident()
-    },[])
+        getResident(url)
+    },[url])
 
     return (
         <li className="character__card">
             <div className="avatar">
-                <img src={char.image} alt={char.name} style={{ width: '150px' }} />
+                <img src={character?.image} alt={character.name} />
+                <span className={`led ${isAlive}`}></span>
             </div>
             <div className="character__info">
-                <p>Name: {char.name} - <span className='status__led' style={{backgroundColor: status}}></span>
-                </p>
-                <p>Specie: {char.species}</p>
-                <p>Genero: {char.gender}</p>
-                <p>Location: {char.location?.name}</p>
+                <h2>{character.name}</h2>
+                <p>Specie: {character.species}</p>
+                <p>Genero: {character.gender}</p>
+                <p>Type: {character.type ? character.type : "N/A"}</p>
+                <p>Location: {character.location?.name}</p>
+                <p>Origin: {character.origin?.name}</p>
             </div>
         </li>
     );

@@ -4,11 +4,11 @@ import './locationInfo.css'
 const LocationInfo = ({loc}) => {
     return (
         <>
-            <h3>{loc.name}</h3>
+            <h3>{loc?.name ? loc.name : "Unknown" }</h3>
             <ul className="content__location">
-                <li>Type: {loc.type}</li>
-                <li>Dimension: {loc.dimension}</li>
-                <li>Population: {loc.residents?.length}</li>
+                <li>Type: {loc?.type ? loc.type : "Unknown"}</li>
+                <li>Dimension: {loc?.dimension ? loc.dimension : "Unknown"}</li>
+                <li>Population: {loc?.residents?.length}</li>
             </ul>
         </>
     );

@@ -1,6 +1,7 @@
 .header{
     grid-area: header;
-    min-height: 250px;
+    width: 100vw;
+    min-height: 290px;
     background-image: url('../src/assets/Images/background_site.jpg');
     background-repeat: no-repeat;
     background-size: cover;
