@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import CardItem from '../CardItem/CardItem';
-import LocationInfo from '../LocationInfo/LocationInfo';
+import LocationInfo from '../LocationInfo/Locationinfo';
 import './boxContenten.css'
 
 
